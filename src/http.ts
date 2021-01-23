@@ -1,6 +1,7 @@
 import { LogLevel, LogService } from "./logging/LogService";
 import { getRequestFn } from "./request";
 import { OptionsOfJSONResponseBody, OptionsOfBufferResponseBody } from "got";
+import * as stream from "stream";
 
 let lastRequestId = 0;
 
@@ -76,9 +77,9 @@ export function doHttpRequest(baseUrl: string, method: "GET"|"POST"|"PUT"|"DELET
         }
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
-            const resposne = await getRequestFn()(params);
+            const response = await getRequestFn()(params);
             let resBody = response.body;
             if (typeof (response.body) === 'string') {
                 try {

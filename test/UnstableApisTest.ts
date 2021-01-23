@@ -452,6 +452,8 @@ describe('UnstableApis', () => {
                 },
             };
 
+            (<any>client).client.getUserId = () => Promise.resolve('@bot:example.org');
+
             http.when("POST", "/_matrix/client/r0/createRoom").respond(200, (path, content) => {
                 expect(content).toMatchObject(expectedRequest);
                 return {room_id: roomId};
@@ -495,6 +497,8 @@ describe('UnstableApis', () => {
                     'org.matrix.msc1772.type': 'org.matrix.msc1772.space',
                 },
             };
+
+            (<any>client).client.getUserId = () => Promise.resolve('@bot:example.org');
 
             http.when("POST", "/_matrix/client/r0/createRoom").respond(200, (path, content) => {
                 expect(content).toMatchObject(expectedRequest);

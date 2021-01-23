@@ -471,7 +471,7 @@ describe('IdentityClient', () => {
         it('should use the request function defined', async () => {
             const {client} = await createTestIdentityClient();
 
-            const testFn = ((_, cb) => cb(null, {statusCode: 200}));
+            const testFn = ((_) => (_) => {return {statusCode: 200};});
             const spy = simple.spy(testFn);
             setRequestFn(spy);
 
@@ -532,7 +532,7 @@ describe('IdentityClient', () => {
         it('should send the appropriate query string', async () => {
             const {client, http} = await createTestIdentityClient();
 
-            const expectedInput = {test: 1234};
+            const expectedInput = {test: "1234"};
             http.when("GET", "/test").respond(200, (path, content, req) => {
                 expect(req.opts.qs).toMatchObject(expectedInput);
                 return {};

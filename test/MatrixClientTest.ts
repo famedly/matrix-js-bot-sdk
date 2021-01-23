@@ -53,9 +53,9 @@ describe('MatrixClient', () => {
         it('should use the request function defined', async () => {
             const {client} = createTestClient();
 
-            const testFn = ((_, cb) => cb(null, {statusCode: 200}));
+            const testFn = ((_) => (_) => {return {statusCode: 200};});
             const spy = simple.spy(testFn);
-            setRequestFn(requestWrapper(spy));
+            setRequestFn(spy);
 
             await client.doRequest("GET", "/test");
             expect(spy.callCount).toBe(1);

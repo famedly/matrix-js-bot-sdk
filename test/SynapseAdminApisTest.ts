@@ -202,7 +202,13 @@ describe('SynapseAdminApis', () => {
             }
 
             http.when("GET", "/_synapse/admin/v2/users").respond(200, (path, _content, req) => {
-                expect(req.opts.qs).toEqual(request);
+                expect(req.opts.qs).toEqual({
+                    from: "foo",
+                    limit: "5",
+                    name: "bar",
+                    guests: "true",
+                    deactivated: "false",
+                });
                 expect(path).toEqual(`${hsUrl}/_synapse/admin/v2/users`);
                 return response;
             });
