@@ -1,6 +1,6 @@
 {
   "name": "@sorunome/matrix-bot-sdk",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "description": "TypeScript/JavaScript SDK for Matrix bots",
   "repository": {
     "type": "git",
@@ -59,7 +59,7 @@
     "mkdirp": "^1.0.4",
     "morgan": "^1.10.0",
     "got": "^11.6.0",
-    "sanitize-html": "^1.27.2"
+    "sanitize-html": "^2.4.0"
   },
   "devDependencies": {
     "@types/expect": "^24.3.0",
