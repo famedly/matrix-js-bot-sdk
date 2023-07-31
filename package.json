@@ -74,7 +74,7 @@
     "get-port": "^5.1.1",
     "jsdoc": "^3.6.5",
     "matrix-mock-request": "^1.2.3",
-    "mocha": "^8.1.1",
+    "mocha": "^10.2.0",
     "simple-mock": "^0.8.0",
     "tmp": "^0.2.1",
     "ts-mocha": "^7.0.0",
